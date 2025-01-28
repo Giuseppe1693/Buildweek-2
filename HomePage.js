@@ -22,7 +22,7 @@ function displayAlbums(albums) {
         <div class="card text-bg-dark">
           <img src="${album.cover_medium}" class="card-img-top p-3" alt="${album.title}" />
           <div class="card-body p-3">
-            <h5 class="card-title">${album.title}</h5>
+            <h5 class="card-title fs-6">${album.title}</h5>
             
           </div>
         </div>
