@@ -40,7 +40,7 @@
   font-weight: 500;
   font-style: italic;
 }
-@font-face {
+.title-song7 {
   font-family: "Circular";
   src: url(../fonts/CircularStd-Bold.otf);
   font-weight: 700;
@@ -52,7 +52,7 @@
   font-weight: 700;
   font-style: italic;
 }
-@font-face {
+.title-song9 {
   font-family: "Circular";
   src: url(../fonts/CircularStd-Black.otf);
   font-weight: 900;

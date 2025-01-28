@@ -1,0 +1,17 @@
+.image {
+  background-image: url(./assets/imgs/search/image-17.jpg) !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: 100%;
+  height: 100vh; /* Altezza dell'intero schermo */
+  overflow: hidden !important; /* Nasconde eventuali parti in eccesso */
+}
+.containerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important; /* Rende l'immagine cover */
+}
