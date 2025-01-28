@@ -53,10 +53,10 @@ function displayAlbums2(albums) {
               <div class="col-md-4">  <!-- Colonna per l'immagine -->
                 <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="${album.title}" />
               </div>
-              <div class="col-md-8">  <!-- Colonna per il testo -->
-                <div class="card-body p-3">
-                  <h5 class="card-title">${album.title}</h5>
-                  <p class="card-text">Alcuni dettagli sull'album...</p> <!-- Puoi aggiungere altre informazioni qui -->
+              <div class="col-md-8 d-flex align-items-center">  <!-- Colonna per il testo -->
+                <div class="card-body p-0 ps-1">
+                  <h5 class="card-title fs-6"><small>${album.title}</small></h5>
+                 
                 </div>
               </div>
             </div>
