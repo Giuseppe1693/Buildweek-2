@@ -20,7 +20,23 @@ async function fetchAlbumDetails(albumId) {
 
     album.tracks.data.forEach((track) => {
       const li = document.createElement("li");
-      li.textContent = track.title;
+      li.innerHTML = `<div class="col-12 mt-4 ">
+                  
+                    <div class="row g-0">  <!-- Row per affiancare immagine e testo -->
+                      
+                      <div class="col-md-8">  <!-- Colonna per il testo -->
+                        <div class="card-body">
+                          <p class="card-title fs-6"><small>${track.title}</small></p>
+                          <p>${album.artist.name}</p>
+                          
+                          
+                         
+                        </div>
+                      </div>
+                      <div class="col-1"><p>${track.duration}</p>
+                      </div>
+                    </div>
+                    </div>`;
       tracklistEl.appendChild(li);
     });
   } catch (error) {
