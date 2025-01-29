@@ -1,5 +1,6 @@
 const row = document.getElementById("row");
 const row1 = document.getElementById("row1");
+const exit = document.getElementById("exit");
 
 async function fetchAlbums(query) {
   const url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`;
