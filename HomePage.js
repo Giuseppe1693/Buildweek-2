@@ -20,7 +20,7 @@ function displayAlbums(albums) {
     col.classList.add("col-md-2", "mb-3"); // Colonne affiancate e margine per il layout
     col.innerHTML = `
         <div class="card text-bg-dark">
-          <img src="${album.cover_medium}" class="card-img-top p-3" alt="${album.title}" />
+          <img src="${album.cover_medium}" class="card-img-top p-1" alt="${album.title}" />
           <div class="card-body p-3">
             <h5 class="card-title fs-6">${album.title}</h5>
             
