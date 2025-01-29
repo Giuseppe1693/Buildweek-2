@@ -26,7 +26,7 @@ async function fetchAlbumDetails(albumId) {
                           <div class="col-md-8">  <!-- Colonna per il testo -->
                                 <div class="card-body">
                                 <p class="card-title fs-6"><small>${track.title}</small></p>
-                                <p>${album.artist.name}</p>
+                                <a href="artistpage.html?id=${album.artist.id}" style="text-decoration: none; color: inherit;">${album.artist.name}</a>
                                 </div>
                           </div>
                           <div class="col-3">

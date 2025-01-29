@@ -93,21 +93,21 @@
           <section class="col-7">
             <div class="row">
             <div class="col-12" >
-              <div class="p-3" style="background-image: url(https://www.ilpost.it/wp-content/uploads/2016/11/kanye-west.jpg);">
+              <div id="artist-picture" class="p-3" style=" height: 300px;">
                 <i class="bi bi-patch-check-fill text-primary"><span class="text-white mx-1">Artista verificato</span></i>
-                <h1 class="text-white mb-5">Yellowcard</h1>
+                <h1 id="artist-name" class="text-white mb-5">Yellowcard</h1>
                 <div>
-                  <p class="text-white">3.867.387<span class="text-white mx-2">Ascoltatori mensili</span></p>
+                  <p id="artist-fans" class="text-white">3.867.387<span class="text-white mx-2">Ascoltatori mensili</span></p>
+                  <p id="artist-albums"></p>
                 </div>
 
               </div>
               <!-- <img class="w-100" src="https://www.ilpost.it/wp-content/uploads/2016/11/kanye-west.jpg"> -->
             </div>
-            </div>
             
-  
+            
             <!-- SEZIONE LISTA BRANI -->
-            <div class="col-12 mt-0 p-3" style="background: linear-gradient(0deg, rgba(31, 31, 31, 1) 16%, rgba(255, 255, 255, 0) 65%)">
+            <div class="col-8 mt-0 p-3" style="background: linear-gradient(0deg, rgba(31, 31, 31, 1) 16%, rgba(255, 255, 255, 0) 65%)">
               <div>
                 <span>
                   <span class="rounded-circle btn btn-success"><i class="bi bi-play-fill"></i></span>
@@ -119,21 +119,20 @@
                 <div class="text-white d-flex justify-content-between mx-2 mb-3 mt-3">
                   <span>Popolari</span>
                 </div>
-  
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
+                
+                <ol id="tracklist" class="text-white">
+                  
+                </ol>
               </div>
             </div>
+            <div id="colDestra" class="col-4  text-white mt-5" style="background: linear-gradient(0deg, rgba(31, 31, 31, 1) 16%, rgba(255, 255, 255, 0) 65%)">
+              <h5>Brani che ti piacciono</h5>
+              <ul id="listaDestra">
+                <li>ciao</li>
+
+              </ul>
+            </div>
+          </div>
           </section>
           <div class="col-2 bg-dark text-white">
             <div class="row bg-dark">
@@ -247,5 +246,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="./artistPage.js"></script>
   </body>
 </html>
