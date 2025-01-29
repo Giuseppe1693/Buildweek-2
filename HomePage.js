@@ -70,7 +70,7 @@ function displayAlbums2(albums) {
 
       col.innerHTML = `
           <div class="card mb-3 bg-dark text-white">
-          <a href="album.html?id=${album.id}" style="text-decoration: none; color: inherit;">
+            <a href="album.html?id=${album.id}" style="text-decoration: none; color: inherit;">
             <div class="row g-0">  <!-- Row per affiancare immagine e testo -->
               <div class="col-md-4">  <!-- Colonna per l'immagine -->
                 <img src="${album.cover_medium}" class="img-fluid rounded-start " alt="${album.title}" />
