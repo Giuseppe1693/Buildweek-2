@@ -1,11 +1,11 @@
 async function fetchAlbumDetails(albumId) {
-  const url = `https://deezerdevs-deezer.p.rapidapi.com/album/${albumId}`;
+  const url = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
 
   try {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "TUO_API_KEY", // Sostituisci con la tua chiave API
+        "X-RapidAPI-Key": "0cebcfc031msh0150ed44edad664p191aeejsnb989127e4040", // Sostituisci con la tua chiave API
         "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
       },
     });
@@ -17,6 +17,7 @@ async function fetchAlbumDetails(albumId) {
     document.getElementById("album-artist").textContent = `Artista: ${album.artist.name}`;
 
     const tracklistEl = document.getElementById("tracklist");
+
     album.tracks.data.forEach((track) => {
       const li = document.createElement("li");
       li.textContent = track.title;
@@ -30,6 +31,7 @@ async function fetchAlbumDetails(albumId) {
 // Prendi l'ID dall'URL
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("id");
+console.log("Album ID trovato nell'URL:", albumId);
 
 if (albumId) {
   fetchAlbumDetails(albumId);

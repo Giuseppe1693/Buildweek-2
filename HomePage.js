@@ -35,6 +35,7 @@ function displayAlbums(albums) {
           <div class="card-body p-3">
             <h5 class="card-title fs-6">${album.title}</h5>
           </div>
+          </a>
         </div>
       `;
     row.appendChild(col);
@@ -79,8 +80,10 @@ function displayAlbums2(albums) {
                 </div>
               </div>
             </div>
+            </a>
           </div>
         `;
+
       row.appendChild(col); // Aggiungi la colonna alla riga
     });
     return row; // Restituisce la riga creata
