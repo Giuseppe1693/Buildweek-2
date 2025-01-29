@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container-fluid">
@@ -125,22 +126,28 @@
             </ul>
           </div>
         </div>
-        <div
-          class="col-7 px-4"
-          style="background: linear-gradient(202deg, rgba(31, 31, 31, 1) 16%, rgba(18, 18, 18, 1) 100%)"
-        >
+        <div class="col-7 px-4 bg-black bg-gradient">
           <div class="dropdown d-flex justify-content-between py-2">
             <div>
               <button class="text-bg-dark rounded-circle">&lt</button>
               <button class="text-bg-dark rounded-circle">&gt</button>
             </div>
+
+            <img
+              src="./assets/imgs/main/image-10.jpg"
+              class="rounded-circle profile-image"
+              alt="Profile Picture"
+              width="30"
+              height="30"
+              id="profile-image"
+            />
             <button
-              class="btn text-bg-dark dropdown-toggle px-1 p-0 rounded-pill"
+              class="btn bg-black text-white dropdown-toggle ps-4 p-1 rounded-pill account"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Dropdown button
+              Epicode Account
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Artist</a></li>
@@ -149,29 +156,29 @@
             </ul>
           </div>
           <div class="row">
-            <div class="col-12 text-bg-dark rounded-3">
+            <div class="col-12 text-white rounded-3" id="bg-hero">
               <div class="row p-4">
                 <div class="col-3 px-0">
                   <img
                     class="object-fit-cover mt-3"
                     style="max-width: 90%"
-                    src="./assets/imgs/search/image-1.jpeg"
+                    src="./assets/imgs/main/image-11.jpg"
                     alt="img1"
                   />
                 </div>
                 <div class="col-9">
                   <div class="d-flex justify-content-between">
                     <h6>ALBUM</h6>
-                    <button class="btn text-secondary bg-dark rounded-pill btn-sm">NASCONDI ANNUNCIO</button>
+                    <button class="btn btn-sm rounded-pill hide-ads">NASCONDI ANNUNCIO</button>
                   </div>
-                  <h1>VIOLA (FEAT. SALMO)</h1>
-                  <p>Fedez, Salmo</p>
-                  <p>Ascolta il nuovo singolo di Fedez e Salmo!</p>
+                  <h1>MERCURRY - ACTS 1 & 2</h1>
+                  <p>Imagine Dragons</p>
+                  <p>Ascolta il nuovo album degli Imagine Dragons!</p>
                   <span>
                     <button class="btn px-3 rounded-pill" style="background-color: #1ed760">
                       <b>Play</b>
                     </button>
-                    <button class="btn bg-black px-4 mx-3 rounded-pill text-white">Salva</button>
+                    <button class="btn btn-outline-light bg-black px-4 mx-3 rounded-pill text-white">Salva</button>
                     <i class="bi bi-three-dots"></i>
                   </span>
                 </div>
