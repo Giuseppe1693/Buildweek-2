@@ -69,11 +69,11 @@ function displayAlbums2(albums) {
       col.classList.add("col-md-4", "mb-3"); // Colonne affiancate (3 colonne per riga)
 
       col.innerHTML = `
-          <div class="card mb-3">
+          <div class="card mb-3 bg-dark text-white">
           <a href="album.html?id=${album.id}" style="text-decoration: none; color: inherit;">
             <div class="row g-0">  <!-- Row per affiancare immagine e testo -->
               <div class="col-md-4">  <!-- Colonna per l'immagine -->
-                <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="${album.title}" />
+                <img src="${album.cover_medium}" class="img-fluid rounded-start " alt="${album.title}" />
               </div>
               <div class="col-md-8 d-flex align-items-center">  <!-- Colonna per il testo -->
                 <div class="card-body p-0 ps-1">
