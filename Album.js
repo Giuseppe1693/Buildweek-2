@@ -24,13 +24,16 @@ async function fetchAlbumDetails(albumId) {
                       <div class="col-12 mt-4 ">
                         <div class="row g-0">  <!-- Row per affiancare immagine e testo -->
                           <div class="col-md-8">  <!-- Colonna per il testo -->
-                            <div class="card-body">
-                             <p class="card-title fs-6"><small>${track.title}</small></p>
-                             <p>${album.artist.name}</p>
-                            </div>
+                                <div class="card-body">
+                                <p class="card-title fs-6"><small>${track.title}</small></p>
+                                <p>${album.artist.name}</p>
+                                </div>
+                          </div>
+                          <div class="col-3">
+                            <p>${track.rank}</p>
                           </div>
                           <div class="col-1">
-                            <p>${track.duration}</p>
+                          <p>${track.duration}</p>
                           </div>
                         </div>
                       </div>`;
