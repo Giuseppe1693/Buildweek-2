@@ -29,6 +29,7 @@ async function fetchArtistTracks(artistId) {
 
     data.data.forEach((track) => {
       const li = document.createElement("li");
+
       li.innerHTML = `
           <div class="col-12 mt-2">
             <div class="row g-0 align-items-center">
@@ -43,6 +44,19 @@ async function fetchArtistTracks(artistId) {
               </div>
             </div>
           </div>`;
+      document.getElementById("listaDestra").innerHTML = `
+          <div class="text-center p-3">
+            <div class="d-flex">
+              <img src="${track.album.cover_medium}" alt="" class="img-fluid rounded-circle me-3" style="width: 50px; height: 50px;">
+              <div class="card-body>
+              <h5 class=" text-white   mb-0" style="font-size: 10px;">Hai Messo mi piace a 11 brani</h5>
+              <p class="card-title text-white  mb-0" style="font-size: 10px;">${track.artist.name}</p>
+              
+              </div>
+              
+            </div>
+          </div>
+        `;
 
       tracklistEl.appendChild(li);
     });
