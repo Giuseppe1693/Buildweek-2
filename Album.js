@@ -17,26 +17,32 @@ async function fetchAlbumDetails(albumId) {
     document.getElementById("album-artist").textContent = `Artista: ${album.artist.name}`;
 
     const tracklistEl = document.getElementById("tracklist");
+    tracklistEl.innerHTML = ""; // Puliamo la lista prima di aggiungere nuove tracce
 
     album.tracks.data.forEach((track) => {
       const li = document.createElement("li");
-      li.innerHTML = ` 
-                      <div class="col-12 mt-4 ">
-                        <div class="row g-0">  <!-- Row per affiancare immagine e testo -->
-                          <div class="col-md-8">  <!-- Colonna per il testo -->
-                                <div class="card-body">
-                                <p class="card-title fs-6"><small>${track.title}</small></p>
-                                <a href="artistpage.html?id=${album.artist.id}" style="text-decoration: none; color: inherit;">${album.artist.name}</a>
-                                </div>
-                          </div>
-                          <div class="col-3">
-                            <p>${track.rank}</p>
-                          </div>
-                          <div class="col-1">
-                          <p>${track.duration}</p>
-                          </div>
-                        </div>
-                      </div>`;
+      li.classList.add("track-item"); // Aggiunge una classe per gestire lo stile
+      li.innerHTML = `
+        <div class="col-12 mt-4 track" data-title="${track.title}" data-artist="${album.artist.name}" data-cover="${album.cover_medium}">
+          <div class="row g-0">
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-title fs-6"><small>${track.title}</small></p>
+                <a href="artistpage.html?id=${album.artist.id}" style="text-decoration: none; color: inherit;">${album.artist.name}</a>
+              </div>
+            </div>
+            <div class="col-3">
+              <p>${track.rank}</p>
+            </div>
+            <div class="col-1">
+              <p>${track.duration}</p>
+            </div>
+          </div>
+        </div>`;
+
+      // Aggiunge evento click per aggiornare la card
+      li.addEventListener("click", () => updateTrackCard(track.title, album.artist.name, album.cover_medium));
+
       tracklistEl.appendChild(li);
     });
   } catch (error) {
@@ -44,10 +50,16 @@ async function fetchAlbumDetails(albumId) {
   }
 }
 
-// Prendi l'ID dall'URL
+// Funzione per aggiornare la card con i dettagli della traccia selezionata
+function updateTrackCard(title, artist, cover) {
+  document.getElementById("track-title").textContent = title; // Nome traccia
+  document.getElementById("track-artist").textContent = artist; // Nome artista
+  document.getElementById("track-image").src = cover; // Copertina album
+}
+
+// Prendi l'ID dell'album dall'URL
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("id");
-console.log("Album ID trovato nell'URL:", albumId);
 
 if (albumId) {
   fetchAlbumDetails(albumId);
