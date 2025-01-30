@@ -1,8 +1,7 @@
-.image {
-  background-image: url(./assets/imgs/search/image-17.jpg) !important;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+body *,
+::before,
+*::after {
+  box-sizing: border-box;
 }
 
 .container {
@@ -45,4 +44,53 @@
 
 .account {
   font-size: small;
+}
+#left-column {
+  height: 100vh; /* Altezza della colonna pari a quella del viewport */
+  overflow-y: scroll; /* Barra di scorrimento verticale se necessario */
+  padding: 0; /* Rimuove eventuali spazi interni */
+  margin: 0; /* Rimuove eventuali margini esterni */
+  box-sizing: border-box; /* Assicura che padding e border non influenzino l'altezza */
+  padding: 2;
+}
+
+/* Personalizzazione della scrollbar in Chrome, Edge e Safari */
+#left-column::-webkit-scrollbar {
+  width: 12px; /* Larghezza della scrollbar */
+}
+
+#left-column::-webkit-scrollbar-track {
+  background: #000000; /* Colore di sfondo della scrollbar (track) */
+}
+
+#left-column::-webkit-scrollbar-thumb {
+  background-color: #888; /* Colore del "thumb" (parte che si sposta) */
+}
+
+#left-column::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Colore quando il thumb è in hover */
+}
+#left-column2 {
+  height: 100vh; /* Altezza della colonna pari a quella del viewport */
+  overflow-y: auto; /* Barra di scorrimento verticale se necessario */
+  padding: 0; /* Rimuove eventuali spazi interni */
+  margin: 0; /* Rimuove eventuali margini esterni */
+  box-sizing: border-box; /* Assicura che padding e border non influenzino l'altezza */
+}
+
+/* Personalizzazione della scrollbar in Chrome, Edge e Safari */
+#left-column2::-webkit-scrollbar {
+  width: 12px; /* Larghezza della scrollbar */
+}
+
+#left-column2::-webkit-scrollbar-track {
+  background: #272727; /* Colore di sfondo della scrollbar (track) */
+}
+
+#left-column2::-webkit-scrollbar-thumb {
+  background-color: #888; /* Colore del "thumb" (parte che si sposta) */
+}
+
+#left-column2::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Colore quando il thumb è in hover */
 }

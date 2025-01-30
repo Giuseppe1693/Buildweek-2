@@ -28,17 +28,18 @@ function displayAlbums(albums) {
 
   selectedAlbums.forEach((album) => {
     const col = document.createElement("div");
-    col.classList.add("col-md-2", "mb-3"); // Colonne affiancate e margine per il layout
+    col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2", "mb-2", "p-1"); // Adatta le colonne in base alla dimensione dello schermo
     col.innerHTML = `
-        <div class="card text-bg-dark">
-        <a href="album.html?id=${album.id}" style="text-decoration: none; color: inherit;">
-          <img src="${album.cover_medium}" class="card-img-top p-3" alt="${album.title}" />
-          <div class="card-body p-3">
-            <h5 class="card-title fs-6">${album.title}</h5>
-          </div>
-          </a>
+    <div class="card text-bg-dark" style="width: 100%; height: auto; margin: auto;"> 
+      <a href="album.html?id=${album.id}" style="text-decoration: none; color: inherit;">
+        <img src="${album.cover_medium}" class="card-img-top" alt="${album.title}" 
+          style="width: 100%; height: 100px; object-fit: cover;" />
+        <div class="card-body p-1 text-center">
+          <h5 class="card-title fs-7" style="font-size: 10px; margin-bottom: 2px;">${album.title}</h5>
         </div>
-      `;
+      </a>
+    </div>
+  `;
     row.appendChild(col);
   });
 }
