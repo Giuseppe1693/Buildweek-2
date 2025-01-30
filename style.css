@@ -121,3 +121,6 @@ body {
 .customfs {
   font-size: small;
 }
+.expanded {
+  flex: 1 !important; /* Espande la colonna centrale a occupare tutto lo spazio disponibile */
+}

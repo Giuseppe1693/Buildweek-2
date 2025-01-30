@@ -1,6 +1,8 @@
 const row = document.getElementById("row");
 const row1 = document.getElementById("row1");
 const exit = document.getElementById("exit");
+const colonnaDestra = document.getElementById("colonna-destra"); // Seleziona la colonna di destra
+const colonnaCentrale = document.getElementById("colonna-centrale");
 
 async function fetchAlbums(query) {
   const url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`;
@@ -102,4 +104,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const albums = await fetchAlbums("queen"); // Cambia "queen" con un'altra query se vuoi
   displayAlbums(albums);
   displayAlbums2(albums);
+});
+
+// Aggiungi l'evento di clic all'icona della X
+exit.addEventListener("click", function (event) {
+  event.preventDefault(); // Previeni l'azione di link (poiché è un anchor tag)
+  colonnaDestra.style.display = "none"; // Nascondi la colonna di destra
+  colonnaCentrale.classList.add("expanded");
 });
