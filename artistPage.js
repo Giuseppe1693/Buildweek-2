@@ -48,12 +48,10 @@ async function fetchArtistTracks(artistId) {
           <div class="text-center p-3">
             <div class="d-flex">
               <img src="${track.album.cover_medium}" alt="" class="img-fluid rounded-circle me-3" style="width: 50px; height: 50px;">
-              <div class="card-body>
-              <h5 class=" text-white   mb-0" style="font-size: 10px;">Hai Messo mi piace a 11 brani</h5>
-              <p class="card-title text-white  mb-0" style="font-size: 10px;">${track.artist.name}</p>
-              
+              <div class="card-body d-flex flex-column justify-content-center">
+                <h3 class="text-white mb-0" style="font-size: 14px; white-space: nowrap;">Hai Messo mi piace a 11 brani</h3>
+                <p class="card-title text-white mb-0" style="font-size: 12px; white-space: nowrap;"> Di  ${track.artist.name}</p>
               </div>
-              
             </div>
           </div>
         `;
