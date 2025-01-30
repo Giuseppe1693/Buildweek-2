@@ -25,36 +25,30 @@ async function fetchArtistTracks(artistId) {
     const response = await fetch(url);
     const data = await response.json();
     const tracklistEl = document.getElementById("tracklist");
-    const listaDestra = document.getElementById("listaDestra");
+    tracklistEl.innerHTML = ""; // Puliamo la lista prima di aggiungere nuove tracce
 
     data.data.forEach((track) => {
       const li = document.createElement("li");
+      li.classList.add("track-item");
+      li.style.cursor = "pointer"; // Imposta il cursore su "pointer" per indicare che è cliccabile
 
       li.innerHTML = `
-          <div class="col-12 mt-2">
-            <div class="row g-0 align-items-center">
-              <div class="col-md-2">
-                <img class="w-50" src="${track.album.cover_medium}" alt="Album Cover" class="img-fluid rounded">
-              </div>
-              <div class="col-md-8">
-                <p class="fs-6"><small>${track.title}</small></p>
-              </div>
-              <div class="col-md-2">
-                <p>${track.duration} sec</p>
-              </div>
+        <div class="col-12 mt-2 track" data-title="${track.title}" data-artist="${track.artist.name}" data-cover="${track.album.cover_medium}">
+          <div class="row g-0 align-items-center">
+            <div class="col-md-2">
+              <img class="w-50" src="${track.album.cover_medium}" alt="Album Cover" class="img-fluid rounded">
             </div>
-          </div>`;
-      document.getElementById("listaDestra").innerHTML = `
-          <div class="text-center p-3">
-            <div class="d-flex">
-              <img src="${track.album.cover_medium}" alt="" class="img-fluid rounded-circle me-3" style="width: 50px; height: 50px;">
-              <div class="card-body d-flex flex-column justify-content-center">
-                <h3 class="text-white mb-0" style="font-size: 14px; white-space: nowrap;">Hai Messo mi piace a 11 brani</h3>
-                <p class="card-title text-white mb-0" style="font-size: 12px; white-space: nowrap;"> Di  ${track.artist.name}</p>
-              </div>
+            <div class="col-md-8">
+              <p class="fs-6"><small>${track.title}</small></p>
+            </div>
+            <div class="col-md-2">
+              <p>${track.duration} sec</p>
             </div>
           </div>
-        `;
+        </div>`;
+
+      // Aggiungi evento click per aggiornare la card
+      li.addEventListener("click", () => updateTrackCard(track.title, track.artist.name, track.album.cover_medium));
 
       tracklistEl.appendChild(li);
     });
@@ -63,7 +57,14 @@ async function fetchArtistTracks(artistId) {
   }
 }
 
-// Prendi l'ID dall'URL
+// Funzione per aggiornare la card con i dettagli della traccia selezionata
+function updateTrackCard(title, artist, cover) {
+  document.getElementById("track-image").src = cover;
+  document.getElementById("track-title").textContent = title;
+  document.getElementById("track-artist").textContent = artist;
+}
+
+// Prendi l'ID dell'artista dall'URL
 const params = new URLSearchParams(window.location.search);
 const artistId = params.get("id");
 
