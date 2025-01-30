@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <!-- COLONNA DI SINISTRA -->
         <div class="row">
-          <div id="left-column" class="col-3 text-white bg-dark">
+          <div id="left-column" class="col-3 text-white bg-black px-3">
             <div class="d-flex flex-column mb-3">
               <i class="bi bi-three-dots mb-2"></i>
               <i class="bi bi-house-door-fill mb-2"><a class="m-2 text-decoration-none text-reset" href="/index.html">Home</a></i>
@@ -91,7 +91,7 @@
             </div>
           </div>
           <section id="left-column" class="col-7" style="overflow-x: hidden;">
-            <div class="row">
+            <div class="row bg-black bg-gradient">
             <div class="col-12" >
               <div id="artist-picture" class="p-3" style=" height: 300px;">
                 <i class="bi bi-patch-check-fill text-primary"><span class="text-white mx-1">Artista verificato</span></i>
@@ -208,56 +208,115 @@
             </div>
           </div>
       </div>
-      <div class="container-fluid bg-dark p-2 sticky-bottom z-index-1000">
-        <div class="row text-bg-dark align-items-center">
-  
-          <div class="col-3 d-flex align-items-center">
-            <img
-              src="./assets/imgs/main/image-14.jpg"
-              alt="Song Thumbnail"
-              class="img-fluid me-3"
-              style="width: 50px; height: 50px; border-radius: 5px;"
-            />
-            <div>
-              <h5 class="mb-0 text-truncate" style="max-width: 150px;">Fat Funny Friend</h5>
-              <p class="mb-0 text-muted">Maddie Zahm</p>
-            </div>
-            <i class="bi bi-heart ms-auto"></i>
+      <div class="container-fluid text z-index-1000 text-white endbar">
+      <div class="row align-items-center">
+        <div class="col-3 d-flex align-items-center">
+          <img
+            src="./assets/imgs/main/image-14.jpg"
+            alt="Song Thumbnail"
+            class="img-fluid me-3"
+            style="width: 50px; height: 50px; border-radius: 5px"
+          />
+          <div class="text-white">
+            <h5 class="mb-0 text-truncate" style="max-width: 150px">Fat Funny Friend</h5>
+            <p class="text-secondary">Maddie Zahm</p>
           </div>
-  
-  
-          <div class="col-6 text-center">
-            <div class="d-flex justify-content-center align-items-center mb-2">
-              <i class="bi bi-shuffle fs-5 me-3"></i>
-              <i class="bi bi-skip-start-fill fs-4 me-3"></i>
-              <i class="bi bi-play-circle-fill fs-2 me-3"></i>
-              <i class="bi bi-skip-end-fill fs-4 me-3"></i>
-              <i class="bi bi-repeat fs-5"></i>
-            </div>
-            <div class="d-flex align-items-center">
-              <span class="text-muted me-2">0:58</span>
-              <div class="progress flex-grow-1" style="height: 5px;">
-                <div class="progress-bar bg-success" role="progressbar" style="width: 30%;"></div>
-              </div>
-              <span class="text-muted ms-2">3:20</span>
-            </div>
+          <i class="bi bi-heart ms-auto"></i>
+        </div>
+
+        <div class="col-6 text-center">
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <i class="bi bi-shuffle fs-5 me-3"></i>
+            <i class="bi bi-skip-start-fill fs-4 me-3"></i>
+            <i class="bi bi-play-circle-fill fs-2 me-3"></i>
+            <i class="bi bi-skip-end-fill fs-4 me-3"></i>
+            <i class="bi bi-repeat fs-5"></i>
           </div>
-  
-          <div class="col-3 d-flex justify-content-end align-items-center">
-            <i class="bi bi-volume-up me-2"></i>
-            <input
-              type="range"
-              class="form-range me-3"
-              style="width: 100px;"
-              min="0"
-              max="1"
-              step="0.01"
-              value="0.5"
-            />
-            <i class="bi bi-three-dots-vertical"></i>
+          <div class="d-flex align-items-center">
+            <span class="me-2">0:58</span>
+            <div class="progress flex-grow-1" style="height: 5px">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 30%"></div>
+            </div>
+            <span class="ms-2">3:20</span>
           </div>
         </div>
+        <!-- mettere a posto l'input del volume -->
+        <div class="col-3 d-flex justify-content-end align-items-center">
+          <svg
+            data-encore-id="icon"
+            role="img"
+            aria-hidden="true"
+            class="m-1"
+            viewBox="0 0 16 16"
+            fill="white"
+            width="15"
+          >
+            <path
+              d="M13.426 2.574a2.831 2.831 0 0 0-4.797 1.55l3.247 3.247a2.831 2.831 0 0 0 1.55-4.797zM10.5 8.118l-2.619-2.62A63303.13 63303.13 0 0 0 4.74 9.075L2.065 12.12a1.287 1.287 0 0 0 1.816 1.816l3.06-2.688 3.56-3.129zM7.12 4.094a4.331 4.331 0 1 1 4.786 4.786l-3.974 3.493-3.06 2.689a2.787 2.787 0 0 1-3.933-3.933l2.676-3.045 3.505-3.99z"
+            ></path>
+          </svg>
+          <svg
+            data-encore-id="icon"
+            role="img"
+            aria-hidden="true"
+            class="m-1"
+            viewBox="0 0 16 16"
+            fill="white"
+            width="15"
+          >
+            <path
+              d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5zm2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2h-9z"
+            ></path>
+          </svg>
+          <svg
+            data-encore-id="icon"
+            role="img"
+            aria-hidden="true"
+            class="m-1"
+            viewBox="0 0 16 16"
+            fill="white"
+            width="15"
+          >
+            <path
+              d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15h-6.5A1.75 1.75 0 0 1 6 13.25V2.75zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25h-6.5zm-6 0a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 0 1 0 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"
+            ></path>
+            <path d="M13 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-1-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+          </svg>
+
+          <i class="bi bi-volume-up me-2 cursor"></i>
+          <input type="range" style="width: 100px" min="0" max="1" step="0.01" value="0.5" />
+          <svg
+            data-encore-id="icon"
+            role="img"
+            aria-hidden="true"
+            class="m-1"
+            viewBox="0 0 16 16"
+            fill="white"
+            width="15"
+          >
+            <path
+              d="M16 2.45c0-.8-.65-1.45-1.45-1.45H1.45C.65 1 0 1.65 0 2.45v11.1C0 14.35.65 15 1.45 15h5.557v-1.5H1.5v-11h13V7H16V2.45z"
+            ></path>
+            <path
+              d="M15.25 9.007a.75.75 0 0 1 .75.75v4.493a.75.75 0 0 1-.75.75H9.325a.75.75 0 0 1-.75-.75V9.757a.75.75 0 0 1 .75-.75h5.925z"
+            ></path>
+          </svg>
+          <svg
+            data-encore-id="icon"
+            role="img"
+            aria-hidden="true"
+            class="m-1"
+            viewBox="0 0 16 16"
+            fill="white"
+            width="15"
+          >
+            <path
+              d="M6.53 9.47a.75.75 0 0 1 0 1.06l-2.72 2.72h1.018a.75.75 0 0 1 0 1.5H1.25v-3.579a.75.75 0 0 1 1.5 0v1.018l2.72-2.72a.75.75 0 0 1 1.06 0zm2.94-2.94a.75.75 0 0 1 0-1.06l2.72-2.72h-1.018a.75.75 0 1 1 0-1.5h3.578v3.579a.75.75 0 0 1-1.5 0V3.81l-2.72 2.72a.75.75 0 0 1-1.06 0z"
+            ></path>
+          </svg>
+        </div>
       </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
