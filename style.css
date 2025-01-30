@@ -117,3 +117,7 @@ body {
 .custombg {
   background-color: #272727;
 }
+
+.customfs {
+  font-size: small;
+}
