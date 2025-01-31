@@ -10,7 +10,7 @@ async function fetchArtistDetails(artistId) {
     document.getElementById("artist-name").textContent = artist.name;
     document.getElementById("artist-picture").style.backgroundImage = `url(${artist.picture_big})`;
     document.getElementById("artist-picture").style.backgroundSize = "cover";
-    document.getElementById("artist-picture").style.backgroundPosition = "center";
+    document.getElementById("artist-picture").style.backgroundPosition = "50% 25%";
     document.getElementById("artist-fans").textContent = `Ascoltatori mensili: ${artist.nb_fan}`;
 
     // Recupera le tracce più popolari dell'artista
@@ -37,7 +37,7 @@ async function fetchArtistTracks(artistId) {
         <div class="col-12 mt-2 track" data-title="${track.title}" data-artist="${track.artist.name}" data-cover="${track.album.cover_medium}">
           <div class="row g-0">
             <div class="col-md-2 ">
-              <img class="w-50s rounded " src="${track.album.cover_medium}" alt="Album Cover">
+              <img class="w-50 img-fluid rounded " src="${track.album.cover_medium}" alt="Album Cover">
             </div>
             <div class="col-md-8">
               <p class="fs-6"><small>${track.title}</small></p>
