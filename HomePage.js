@@ -121,3 +121,10 @@ showRightColBtn.addEventListener("click", function () {
   colonnaCentrale.classList.remove("expanded");
   showRightColBtn.classList.add("d-none"); // Nasconde di nuovo il bottone
 });
+
+const range = document.querySelector(".custom-range");
+
+range.addEventListener("input", function () {
+  let value = ((this.value - this.min) / (this.max - this.min)) * 100;
+  this.style.background = `linear-gradient(to right, #198754 ${value}%, #333 ${value}%)`;
+});
