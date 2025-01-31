@@ -1,36 +1,44 @@
+// Seleziona gli elementi HTML con l'ID specificato per usarli nel codice
 const row = document.getElementById("row");
 const row1 = document.getElementById("row1");
 const exit = document.getElementById("exit");
-const colonnaDestra = document.getElementById("colonna-destra"); // Seleziona la colonna di destra
+const colonnaDestra = document.getElementById("colonna-destra");
 const colonnaCentrale = document.getElementById("colonna-centrale");
 
+// Funzione asincrona per ottenere gli album dalla API di Deezer
 async function fetchAlbums(query) {
-  const url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`;
+  const url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`; // URL con la query per cercare gli album
   try {
-    const response = await fetch(url); // Chiamata API per ottenere i dati
-    const data = await response.json(); // Converti la risposta in formato JSON
-    return data.data.map((track) => track.album); // Estrai solo gli album dai dati
+    const response = await fetch(url); //  facciamo la chiamata API per ottenere i dati
+    const data = await response.json(); // convertiamo la risposta in fomato json
+    return data.data.map((track) => track.album); // estraiamo solo gli album dai dati ricevuti
   } catch (error) {
-    console.error("Errore durante la chiamata API:", error); // Gestisci errori
+    console.error("Errore durante la chiamata API:", error);
   }
 }
 
+// Funzione per visualizzare gli album nella home page
 function displayAlbums(albums) {
-  row.innerHTML = ""; // Pulisci la riga prima di aggiungere nuove card
-  const selectedAlbums = [];
-  const usedIndexes = new Set();
+  row.innerHTML = "";
+  const selectedAlbums = []; // creiamo un array vuoto per gli album selezionati
+  const usedIndexes = new Set(); // Set per tenere traccia degli indici già usati
 
+  // Seleziona 5 album casuali senza duplicati
   while (selectedAlbums.length < 5 && selectedAlbums.length < albums.length) {
-    let randomIndex = Math.floor(Math.random() * albums.length);
+    //usiamo un ciclo wwhile che si eseguirà finchè le condizioni non siano vere
+    let randomIndex = Math.floor(Math.random() * albums.length); // Seleziona un indice casuale
     if (!usedIndexes.has(randomIndex)) {
-      selectedAlbums.push(albums[randomIndex]);
-      usedIndexes.add(randomIndex);
+      // Controlla se l'indice è già stato usato la funzione has memorizza valori unici in modo tale che non troviamo album duplicati
+
+      selectedAlbums.push(albums[randomIndex]); // Aggiungi l'album selezionato
+      usedIndexes.add(randomIndex); // Aggiungi l'indice al set per evitare duplicati
     }
   }
 
+  // Aggiungi ogni album selezionato alla pagina
   selectedAlbums.forEach((album) => {
-    const col = document.createElement("div");
-    col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2", "mb-2", "p-1"); // Adatta le colonne in base alla dimensione dello schermo
+    const col = document.createElement("div"); // Crea un elemento div per la colonna
+    col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2", "mb-2", "p-1"); // abbiamo impostato le classi per un layout responsivo
     col.innerHTML = `
     <div class="card text-bg-dark" style="width: 100%; height: auto; margin: auto;"> 
       <a href="album.html?id=${album.id}"  target="_blank" style="text-decoration: none; color: inherit;">
@@ -42,38 +50,40 @@ function displayAlbums(albums) {
       </a>
     </div>
   `;
-    row.appendChild(col);
+    row.appendChild(col); // Aggiungi la colonna (con l'album) alla riga
   });
 }
 
+// funzione per visualizzare l altro set di album
 function displayAlbums2(albums) {
-  row1.innerHTML = ""; // Pulisci la riga prima di aggiungere nuove card
+  row1.innerHTML = "";
 
-  // Seleziona 6 album casuali senza duplicati
+  // selezioniamo 6 album casuali senza duplicati come abbiamo fatto sopra
   const selectedAlbums = [];
   while (selectedAlbums.length < 6 && selectedAlbums.length < albums.length) {
-    let randomIndex = Math.floor(Math.random() * albums.length);
+    let randomIndex = Math.floor(Math.random() * albums.length); // selezioniamo un indice casuale
     if (!selectedAlbums.includes(albums[randomIndex])) {
-      selectedAlbums.push(albums[randomIndex]);
+      // controlliamo se l'album è già stato selezionato
+      selectedAlbums.push(albums[randomIndex]); // aggiungiamo l'album selezionato
     }
   }
 
-  // Dividi gli album selezionati in due gruppi da 3
-  const firstRowAlbums = selectedAlbums.slice(0, 3);
-  const secondRowAlbums = selectedAlbums.slice(3, 6);
+  // dividiamo gli album selezionati in due gruppi da 3
+  const firstRowAlbums = selectedAlbums.slice(0, 3); // Seleziona i primi 3 album
+  const secondRowAlbums = selectedAlbums.slice(3, 6); // Seleziona i successivi 3 album
 
   // Funzione per creare una riga di 3 card
   const createRow = (albums) => {
     const row = document.createElement("div");
-    row.classList.add("row"); // La riga con le card
+    row.classList.add("row"); // impostiamo la classe row
     albums.forEach((album) => {
-      // Creiamo una colonna per ogni album
       const col = document.createElement("div");
-      col.classList.add("col-md-4", "mb-3"); // Colonne affiancate (3 colonne per riga)
+      col.classList.add("col-md-4", "mb-3"); // gli assegniamo una classe col
 
+      // creiamo la card per ogni album
       col.innerHTML = `
           <div class="card mb-3 bg-dark text-white">
-            <a href="album.html?id=${album.id}"  target="_blank" style="text-decoration: none; color: inherit;">
+            <a href="album.html?id=${album.id}" target="_blank" style="text-decoration: none; color: inherit;">
             <div class="row g-0">  <!-- Row per affiancare immagine e testo -->
               <div class="col-md-4">  <!-- Colonna per l'immagine -->
                 <img src="${album.cover_medium}" class="img-fluid rounded-start " alt="${album.title}" />
@@ -87,44 +97,48 @@ function displayAlbums2(albums) {
             </a>
           </div>
         `;
-
-      row.appendChild(col); // Aggiungi la colonna alla riga
+      row.appendChild(col);
     });
-    return row; // Restituisce la riga creata
+    return row; // restituisce la riga creata
   };
 
-  // Crea e aggiungi la prima riga con 3 card
+  // creiamo e aggiungiamo la prima riga con 3 card
   row1.appendChild(createRow(firstRowAlbums));
 
-  // Crea e aggiungi la seconda riga con 3 card
+  // creiamo e aggiungiamo la seconda riga con 3 card
   row1.appendChild(createRow(secondRowAlbums));
 }
 
+// quando la pagina è pronta DOM completamente caricato, esegue la funzione
 document.addEventListener("DOMContentLoaded", async () => {
-  const albums = await fetchAlbums("queen"); // Cambia "queen" con un'altra query se vuoi
-  displayAlbums(albums);
-  displayAlbums2(albums);
+  const albums = await fetchAlbums("queen"); // ottieniamo gli album di "queen" tramite API
+  displayAlbums(albums); // Visualizza gli album nella home page
+  displayAlbums2(albums); // Visualizza un altro set di album
 });
 
+// selezionamo bottone per nascondere e mostrare la colonna di destra
 const showRightColBtn = document.getElementById("show-right-col");
 
-// Aggiungi l'evento di clic all'icona della X
+// aggiungiamo l'evento di clic all'icona della X
 exit.addEventListener("click", function (event) {
-  event.preventDefault(); // Previeni l'azione di link (poiché è un anchor tag)
-  colonnaDestra.style.display = "none"; // Nascondi la colonna di destra
-  colonnaCentrale.classList.add("expanded");
-  showRightColBtn.classList.remove("d-none"); // Mostra il bottone
+  event.preventDefault(); // preveniamo l'azione di link di default perchè è un ancora
+  colonnaDestra.style.display = "none"; // Nasconde la colonna di destra
+  colonnaCentrale.classList.add("expanded"); // aggiungiamo la classe "expanded" alla colonna centrale
+  showRightColBtn.classList.remove("d-none");
 });
 
+// Aggiungiamo l'evento di clic al bottone per mostrare di nuovo la colonna di destra
 showRightColBtn.addEventListener("click", function () {
-  colonnaDestra.style.display = "block";
-  colonnaCentrale.classList.remove("expanded");
-  showRightColBtn.classList.add("d-none"); // Nasconde di nuovo il bottone
+  colonnaDestra.style.display = "block"; // Mostriamo la colonna di destra
+  colonnaCentrale.classList.remove("expanded"); // Rimuoviamo la classe "expanded" dalla colonna centrale
+  showRightColBtn.classList.add("d-none"); // Nascondiamo di nuovo il bottone
 });
 
+// Gestiamo l'interazione con il range (slider)
 const range = document.querySelector(".custom-range");
 
+// Aggiungiamo l'evento di input per il range (slider)
 range.addEventListener("input", function () {
-  let value = ((this.value - this.min) / (this.max - this.min)) * 100;
-  this.style.background = `linear-gradient(to right, #198754 ${value}%, #333 ${value}%)`;
+  let value = ((this.value - this.min) / (this.max - this.min)) * 100; // Calcoliamo il valore in percentuale
+  this.style.background = `linear-gradient(to right, #198754 ${value}%, #333 ${value}%)`; // Cambiaamo il colore di sfondo del range
 });
