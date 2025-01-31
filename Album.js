@@ -45,10 +45,10 @@ async function fetchAlbumDetails(albumId) {
               </div>
             </div>
             <div class="col-3">
-              <p>${track.rank}</p>  // Aggiunge la posizione (rank) della traccia
+              <p>${track.rank}</p> 
             </div>
             <div class="col-1">
-              <p>${track.duration}</p>  // Aggiunge la durata della traccia
+              <p>${track.duration}</p>  
             </div>
           </div>
         </div>`;
