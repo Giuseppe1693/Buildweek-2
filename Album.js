@@ -1,4 +1,5 @@
 const colonnaDestra = document.getElementById("colonna-destra");
+const colonnaCentrale = document.getElementById("colonna-centrale");
 
 async function fetchAlbumDetails(albumId) {
   const url = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
