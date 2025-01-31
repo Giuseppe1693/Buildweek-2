@@ -35,9 +35,9 @@ async function fetchArtistTracks(artistId) {
 
       li.innerHTML = `
         <div class="col-12 mt-2 track" data-title="${track.title}" data-artist="${track.artist.name}" data-cover="${track.album.cover_medium}">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-2">
-              <img class="w-50" src="${track.album.cover_medium}" alt="Album Cover" class="img-fluid rounded">
+          <div class="row g-0">
+            <div class="col-md-2 ">
+              <img class="w-50s rounded " src="${track.album.cover_medium}" alt="Album Cover">
             </div>
             <div class="col-md-8">
               <p class="fs-6"><small>${track.title}</small></p>
