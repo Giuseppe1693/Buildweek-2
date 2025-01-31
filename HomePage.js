@@ -112,3 +112,10 @@ exit.addEventListener("click", function (event) {
   colonnaDestra.style.display = "none"; // Nascondi la colonna di destra
   colonnaCentrale.classList.add("expanded");
 });
+
+const range = document.querySelector(".custom-range");
+
+range.addEventListener("input", function () {
+  let value = ((this.value - this.min) / (this.max - this.min)) * 100;
+  this.style.background = `linear-gradient(to right, #198754 ${value}%, #333 ${value}%)`;
+});
