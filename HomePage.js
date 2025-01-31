@@ -33,7 +33,7 @@ function displayAlbums(albums) {
     col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2", "mb-2", "p-1"); // Adatta le colonne in base alla dimensione dello schermo
     col.innerHTML = `
     <div class="card text-bg-dark" style="width: 100%; height: auto; margin: auto;"> 
-      <a href="album.html?id=${album.id}" style="text-decoration: none; color: inherit;">
+      <a href="album.html?id=${album.id}"  target="_blank" style="text-decoration: none; color: inherit;">
         <img src="${album.cover_medium}" class="card-img-top" alt="${album.title}" 
           style="width: 100%; height: 100px; object-fit: cover;" />
         <div class="card-body p-1 text-center">
@@ -73,7 +73,7 @@ function displayAlbums2(albums) {
 
       col.innerHTML = `
           <div class="card mb-3 bg-dark text-white">
-            <a href="album.html?id=${album.id}" style="text-decoration: none; color: inherit;">
+            <a href="album.html?id=${album.id}"  target="_blank" style="text-decoration: none; color: inherit;">
             <div class="row g-0">  <!-- Row per affiancare immagine e testo -->
               <div class="col-md-4">  <!-- Colonna per l'immagine -->
                 <img src="${album.cover_medium}" class="img-fluid rounded-start " alt="${album.title}" />
