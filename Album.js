@@ -8,9 +8,8 @@ async function fetchAlbumDetails(albumId) {
   const url = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
 
   try {
-    // effettuiamo la richiesta API per ottenere i dettagli dell'album
     const response = await fetch(url, {
-      method: "GET", // Metodo GET per recuperare i dati
+      method: "GET",
       headers: {
         // Le intestazioni della richiesta includono la chiave API e l'host
         "X-RapidAPI-Key": "0cebcfc031msh0150ed44edad664p191aeejsnb989127e4040",
@@ -18,21 +17,20 @@ async function fetchAlbumDetails(albumId) {
       },
     });
 
-    // convertiamo la risposta in formato JSON
     const album = await response.json();
 
     // popoliamo la pagina con i dettagli dell'album ottenuti
-    document.getElementById("album-title").textContent = album.title; // aggiungiamo il titolo dell'album
-    document.getElementById("album-cover").src = album.cover_medium; // aggiungiamo l'immagine di copertura
-    document.getElementById("album-artist").textContent = `Artista: ${album.artist.name}`; // aggiungiamo il nome dell'artista
+    document.getElementById("album-title").textContent = album.title;
+    document.getElementById("album-cover").src = album.cover_medium;
+    document.getElementById("album-artist").textContent = `Artista: ${album.artist.name}`;
 
-    const tracklistEl = document.getElementById("tracklist"); // selezioniamo l'elemento in cui verranno inserite le tracce
+    const tracklistEl = document.getElementById("tracklist");
     tracklistEl.innerHTML = "";
 
     // cicliamo su tutte le tracce dell'album e le aggiunge alla lista
     album.tracks.data.forEach((track) => {
       const li = document.createElement("li");
-      li.classList.add("pointer"); // aggiungiamo una classe pointer per la stilizzazione
+      li.classList.add("pointer");
 
       // Crea il contenuto HTML per ogni traccia
       li.innerHTML = `
@@ -80,7 +78,6 @@ const albumId = params.get("id"); // estraiamo l'ID dell'album
 if (albumId) {
   fetchAlbumDetails(albumId);
 } else {
-  // Se non c'è un ID nell'URL, mostra un errore
   console.error("Nessun ID album trovato nell'URL");
 }
 
@@ -89,17 +86,17 @@ const showRightColBtn = document.getElementById("show-right-col");
 
 // aggiungiamo un evento di clic per chiudere la colonna di destra (icona della X)
 exit.addEventListener("click", function (event) {
-  event.preventDefault(); // preveniamo l'azione di default del link
-  colonnaDestra.style.display = "none"; // nascondiamo la colonna di destra
-  colonnaCentrale.classList.add("expanded"); // espandiamo la colonna centrale
-  showRightColBtn.classList.remove("d-none"); // mostriamo il bottone per riaprire la colonna di destra
+  event.preventDefault();
+  colonnaDestra.style.display = "none";
+  colonnaCentrale.classList.add("expanded");
+  showRightColBtn.classList.remove("d-none");
 });
 
 // aggiungiamo un evento di clic per mostrare la colonna di destra
 showRightColBtn.addEventListener("click", function () {
-  colonnaDestra.style.display = "block"; // Mostra la colonna di destra
-  colonnaCentrale.classList.remove("expanded"); // Ripristina la colonna centrale
-  showRightColBtn.classList.add("d-none"); // Nasconde il bottone per non farlo più vedere
+  colonnaDestra.style.display = "block";
+  colonnaCentrale.classList.remove("expanded");
+  showRightColBtn.classList.add("d-none");
 });
 
 // Seleziona il range slider per l'interazione
@@ -107,8 +104,7 @@ const range = document.querySelector(".custom-range");
 
 // aggiungiamo un evento di input per aggiornare il colore dello sfondo del range slider
 range.addEventListener("input", function () {
-  // Calcola la percentuale del valore attuale rispetto al range
   let value = ((this.value - this.min) / (this.max - this.min)) * 100;
-  // Cambia lo sfondo del range slider in base al valore
+
   this.style.background = `linear-gradient(to right, #198754 ${value}%, #333 ${value}%)`;
 });

@@ -1,6 +1,6 @@
-// Seleziona gli elementi del DOM usando i loro id
-const colonnaDestra = document.getElementById("colonna-destra"); // Seleziona la colonna di destra
-const colonnaCentrale = document.getElementById("colonna-centrale"); // Seleziona la colonna centrale
+// Seleziona gli elementi del DOM
+const colonnaDestra = document.getElementById("colonna-destra");
+const colonnaCentrale = document.getElementById("colonna-centrale");
 
 // Funzione asincrona per recuperare i dettagli dell'artista dato l'artistId
 async function fetchArtistDetails(artistId) {
@@ -10,19 +10,18 @@ async function fetchArtistDetails(artistId) {
   try {
     // Effettua una richiesta GET per recuperare i dati dell'artista
     const response = await fetch(url);
-    const artist = await response.json(); // Converte la risposta in formato JSON
+    const artist = await response.json();
 
     // Popola la pagina con i dettagli dell'artista
-    document.getElementById("artist-name").textContent = artist.name; // Aggiunge il nome dell'artista
-    document.getElementById("artist-picture").style.backgroundImage = `url(${artist.picture_big})`; // Aggiunge l'immagine di copertura
-    document.getElementById("artist-picture").style.backgroundSize = "cover"; // Imposta la dimensione dell'immagine di copertura
-    document.getElementById("artist-picture").style.backgroundPosition = "50% 25%"; // Imposta la posizione dell'immagine di copertura
-    document.getElementById("artist-fans").textContent = `Ascoltatori mensili: ${artist.nb_fan}`; // Aggiunge il numero di ascoltatori mensili
+    document.getElementById("artist-name").textContent = artist.name;
+    document.getElementById("artist-picture").style.backgroundImage = `url(${artist.picture_big})`;
+    document.getElementById("artist-picture").style.backgroundSize = "cover";
+    document.getElementById("artist-picture").style.backgroundPosition = "50% 25%";
+    document.getElementById("artist-fans").textContent = `Ascoltatori mensili: ${artist.nb_fan}`;
 
     // Recupera le tracce più popolari dell'artista
     fetchArtistTracks(artistId); // Chiama la funzione per recuperare le tracce
   } catch (error) {
-    // Gestisce eventuali errori nella richiesta
     console.error("Errore nel recupero dell'artista:", error);
   }
 }
@@ -35,17 +34,17 @@ async function fetchArtistTracks(artistId) {
   try {
     // Effettua la richiesta per recuperare le tracce
     const response = await fetch(url);
-    const data = await response.json(); // Converte la risposta in formato JSON
-    const tracklistEl = document.getElementById("tracklist"); // Seleziona l'elemento della lista delle tracce
-    tracklistEl.innerHTML = ""; // Pulisce la lista prima di aggiungere nuove tracce
+    const data = await response.json();
+    const tracklistEl = document.getElementById("tracklist");
+    tracklistEl.innerHTML = "";
 
     const listaDestra = document.getElementById("listaDestra"); // Seleziona l'elemento dove mostrare informazioni aggiuntive
 
     // Per ogni traccia nelle tracce più popolari
     data.data.forEach((track) => {
-      const li = document.createElement("li"); // Crea un elemento <li> per la traccia
-      li.classList.add("track-item"); // Aggiunge una classe "track-item" per la stilizzazione
-      li.style.cursor = "pointer"; // Imposta il cursore su "pointer" per indicare che è cliccabile
+      const li = document.createElement("li");
+      li.classList.add("track-item");
+      li.style.cursor = "pointer";
 
       // Imposta il contenuto HTML per la traccia
       li.innerHTML = `
@@ -90,9 +89,9 @@ async function fetchArtistTracks(artistId) {
 
 // Funzione per aggiornare la card con i dettagli della traccia selezionata
 function updateTrackCard(title, artist, cover) {
-  document.getElementById("track-image").src = cover; // Aggiunge l'immagine dell'album alla card
-  document.getElementById("track-title").textContent = title; // Aggiunge il titolo della traccia
-  document.getElementById("track-artist").textContent = artist; // Aggiunge il nome dell'artista
+  document.getElementById("track-image").src = cover;
+  document.getElementById("track-title").textContent = title;
+  document.getElementById("track-artist").textContent = artist;
 }
 
 // Ottieni l'ID dell'artista dall'URL della pagina
@@ -103,7 +102,6 @@ const artistId = params.get("id"); // Ottiene l'ID dell'artista
 if (artistId) {
   fetchArtistDetails(artistId);
 } else {
-  // Se non c'è un ID dell'artista nell'URL, mostra un errore
   console.error("Nessun ID artista trovato nell'URL");
 }
 
@@ -112,17 +110,17 @@ const showRightColBtn = document.getElementById("show-right-col");
 
 // Aggiunge l'evento di clic all'icona della X per nascondere la colonna di destra
 exit.addEventListener("click", function (event) {
-  event.preventDefault(); // Impedisce l'azione di default del link
-  colonnaDestra.style.display = "none"; // Nasconde la colonna di destra
-  colonnaCentrale.classList.add("expanded"); // Espande la colonna centrale
-  showRightColBtn.classList.remove("d-none"); // Mostra il bottone per riaprire la colonna di destra
+  event.preventDefault();
+  colonnaDestra.style.display = "none";
+  colonnaCentrale.classList.add("expanded");
+  showRightColBtn.classList.remove("d-none");
 });
 
 // Aggiunge l'evento di clic per mostrare la colonna di destra
 showRightColBtn.addEventListener("click", function () {
-  colonnaDestra.style.display = "block"; // Mostra la colonna di destra
-  colonnaCentrale.classList.remove("expanded"); // Ripristina la colonna centrale
-  showRightColBtn.classList.add("d-none"); // Nasconde il bottone per non farlo più vedere
+  colonnaDestra.style.display = "block";
+  colonnaCentrale.classList.remove("expanded");
+  showRightColBtn.classList.add("d-none");
 });
 
 // Seleziona il range slider per l'interazione
@@ -130,8 +128,7 @@ const range = document.querySelector(".custom-range");
 
 // Aggiunge un evento di input per aggiornare lo sfondo del range slider
 range.addEventListener("input", function () {
-  // Calcola la percentuale del valore attuale rispetto al range
   let value = ((this.value - this.min) / (this.max - this.min)) * 100;
-  // Cambia lo sfondo del range slider in base al valore
+
   this.style.background = `linear-gradient(to right, #198754 ${value}%, #333 ${value}%)`;
 });

@@ -20,13 +20,12 @@ async function fetchAlbums(query) {
 // Funzione per visualizzare gli album nella home page
 function displayAlbums(albums) {
   row.innerHTML = "";
-  const selectedAlbums = []; // creiamo un array vuoto per gli album selezionati
+  const selectedAlbums = [];
   const usedIndexes = new Set(); // Set per tenere traccia degli indici già usati
 
   // Seleziona 5 album casuali senza duplicati
   while (selectedAlbums.length < 5 && selectedAlbums.length < albums.length) {
-    //usiamo un ciclo wwhile che si eseguirà finchè le condizioni non siano vere
-    let randomIndex = Math.floor(Math.random() * albums.length); // Seleziona un indice casuale
+    let randomIndex = Math.floor(Math.random() * albums.length);
     if (!usedIndexes.has(randomIndex)) {
       // Controlla se l'indice è già stato usato la funzione has memorizza valori unici in modo tale che non troviamo album duplicati
 
@@ -37,8 +36,8 @@ function displayAlbums(albums) {
 
   // Aggiungi ogni album selezionato alla pagina
   selectedAlbums.forEach((album) => {
-    const col = document.createElement("div"); // Crea un elemento div per la colonna
-    col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2", "mb-2", "p-1"); // abbiamo impostato le classi per un layout responsivo
+    const col = document.createElement("div");
+    col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2", "mb-2", "p-1");
     col.innerHTML = `
     <div class="card text-bg-dark" style="width: 100%; height: auto; margin: auto;"> 
       <a href="album.html?id=${album.id}"  target="_blank" style="text-decoration: none; color: inherit;">
@@ -50,7 +49,7 @@ function displayAlbums(albums) {
       </a>
     </div>
   `;
-    row.appendChild(col); // Aggiungi la colonna (con l'album) alla riga
+    row.appendChild(col);
   });
 }
 
@@ -61,24 +60,23 @@ function displayAlbums2(albums) {
   // selezioniamo 6 album casuali senza duplicati come abbiamo fatto sopra
   const selectedAlbums = [];
   while (selectedAlbums.length < 6 && selectedAlbums.length < albums.length) {
-    let randomIndex = Math.floor(Math.random() * albums.length); // selezioniamo un indice casuale
+    let randomIndex = Math.floor(Math.random() * albums.length);
     if (!selectedAlbums.includes(albums[randomIndex])) {
       // controlliamo se l'album è già stato selezionato
       selectedAlbums.push(albums[randomIndex]); // aggiungiamo l'album selezionato
     }
   }
 
-  // dividiamo gli album selezionati in due gruppi da 3
-  const firstRowAlbums = selectedAlbums.slice(0, 3); // Seleziona i primi 3 album
-  const secondRowAlbums = selectedAlbums.slice(3, 6); // Seleziona i successivi 3 album
+  const firstRowAlbums = selectedAlbums.slice(0, 3);
+  const secondRowAlbums = selectedAlbums.slice(3, 6);
 
   // Funzione per creare una riga di 3 card
   const createRow = (albums) => {
     const row = document.createElement("div");
-    row.classList.add("row"); // impostiamo la classe row
+    row.classList.add("row");
     albums.forEach((album) => {
       const col = document.createElement("div");
-      col.classList.add("col-md-4", "mb-3"); // gli assegniamo una classe col
+      col.classList.add("col-md-4", "mb-3");
 
       // creiamo la card per ogni album
       col.innerHTML = `
@@ -102,18 +100,16 @@ function displayAlbums2(albums) {
     return row; // restituisce la riga creata
   };
 
-  // creiamo e aggiungiamo la prima riga con 3 card
   row1.appendChild(createRow(firstRowAlbums));
 
-  // creiamo e aggiungiamo la seconda riga con 3 card
   row1.appendChild(createRow(secondRowAlbums));
 }
 
 // quando la pagina è pronta DOM completamente caricato, esegue la funzione
 document.addEventListener("DOMContentLoaded", async () => {
   const albums = await fetchAlbums("queen"); // ottieniamo gli album di "queen" tramite API
-  displayAlbums(albums); // Visualizza gli album nella home page
-  displayAlbums2(albums); // Visualizza un altro set di album
+  displayAlbums(albums);
+  displayAlbums2(albums);
 });
 
 // selezionamo bottone per nascondere e mostrare la colonna di destra
@@ -121,17 +117,17 @@ const showRightColBtn = document.getElementById("show-right-col");
 
 // aggiungiamo l'evento di clic all'icona della X
 exit.addEventListener("click", function (event) {
-  event.preventDefault(); // preveniamo l'azione di link di default perchè è un ancora
-  colonnaDestra.style.display = "none"; // Nasconde la colonna di destra
-  colonnaCentrale.classList.add("expanded"); // aggiungiamo la classe "expanded" alla colonna centrale
+  event.preventDefault();
+  colonnaDestra.style.display = "none";
+  colonnaCentrale.classList.add("expanded");
   showRightColBtn.classList.remove("d-none");
 });
 
 // Aggiungiamo l'evento di clic al bottone per mostrare di nuovo la colonna di destra
 showRightColBtn.addEventListener("click", function () {
-  colonnaDestra.style.display = "block"; // Mostriamo la colonna di destra
-  colonnaCentrale.classList.remove("expanded"); // Rimuoviamo la classe "expanded" dalla colonna centrale
-  showRightColBtn.classList.add("d-none"); // Nascondiamo di nuovo il bottone
+  colonnaDestra.style.display = "block";
+  colonnaCentrale.classList.remove("expanded");
+  showRightColBtn.classList.add("d-none");
 });
 
 // Gestiamo l'interazione con il range (slider)
