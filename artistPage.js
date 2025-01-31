@@ -10,7 +10,7 @@ async function fetchArtistDetails(artistId) {
     document.getElementById("artist-name").textContent = artist.name;
     document.getElementById("artist-picture").style.backgroundImage = `url(${artist.picture_big})`;
     document.getElementById("artist-picture").style.backgroundSize = "cover";
-    document.getElementById("artist-picture").style.backgroundPosition = "center";
+    document.getElementById("artist-picture").style.backgroundPosition = "50% 25%";
     document.getElementById("artist-fans").textContent = `Ascoltatori mensili: ${artist.nb_fan}`;
 
     // Recupera le tracce più popolari dell'artista
