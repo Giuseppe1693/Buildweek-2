@@ -1,3 +1,5 @@
+const colonnaDestra = document.getElementById("colonna-destra");
+
 async function fetchAlbumDetails(albumId) {
   const url = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
 
@@ -66,3 +68,10 @@ if (albumId) {
 } else {
   console.error("Nessun ID album trovato nell'URL");
 }
+
+// Aggiungi l'evento di clic all'icona della X
+exit.addEventListener("click", function (event) {
+  event.preventDefault(); // Previeni l'azione di link (poiché è un anchor tag)
+  colonnaDestra.style.display = "none"; // Nascondi la colonna di destra
+  colonnaCentrale.classList.add("expanded");
+});
