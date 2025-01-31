@@ -11,8 +11,7 @@ async function fetchArtistDetails(artistId) {
     document.getElementById("artist-picture").style.backgroundImage = `url(${artist.picture_big})`;
     document.getElementById("artist-picture").style.backgroundSize = "cover";
     document.getElementById("artist-picture").style.backgroundPosition = "center";
-    document.getElementById("artist-fans").textContent = `Fan: ${artist.nb_fan}`;
-    document.getElementById("artist-albums").textContent = `Album totali: ${artist.nb_album}`;
+    document.getElementById("artist-fans").textContent = `Ascoltatori mensili: ${artist.nb_fan}`;
 
     // Recupera le tracce più popolari dell'artista
     fetchArtistTracks(artistId);
