@@ -75,9 +75,18 @@ if (artistId) {
   console.error("Nessun ID artista trovato nell'URL");
 }
 
+const showRightColBtn = document.getElementById("show-right-col");
+
 // Aggiungi l'evento di clic all'icona della X
 exit.addEventListener("click", function (event) {
   event.preventDefault(); // Previeni l'azione di link (poiché è un anchor tag)
   colonnaDestra.style.display = "none"; // Nascondi la colonna di destra
   colonnaCentrale.classList.add("expanded");
+  showRightColBtn.classList.remove("d-none"); // Mostra il bottone
+});
+
+showRightColBtn.addEventListener("click", function () {
+  colonnaDestra.style.display = "block";
+  colonnaCentrale.classList.remove("expanded");
+  showRightColBtn.classList.add("d-none"); // Nasconde di nuovo il bottone
 });
