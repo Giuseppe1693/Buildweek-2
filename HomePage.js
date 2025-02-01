@@ -136,5 +136,19 @@ const range = document.querySelector(".custom-range");
 // Aggiungiamo l'evento di input per il range (slider)
 range.addEventListener("input", function () {
   let value = ((this.value - this.min) / (this.max - this.min)) * 100; // Calcoliamo il valore in percentuale
-  this.style.background = `linear-gradient(to right, #198754 ${value}%, #333 ${value}%)`; // Cambiaamo il colore di sfondo del range
+  this.style.background = `linear-gradient(to right, #198754 ${value}%, #5454 ${value}%)`; // Cambiaamo il colore di sfondo del range
+});
+
+const playbtn = document.getElementById("playbtn");
+
+playbtn.addEventListener("click", function () {
+  if (playbtn.classList.contains("bi-play-circle-fill")) {
+    // Change to pause icon
+    playbtn.classList.remove("bi-play-circle-fill");
+    playbtn.classList.add("bi-pause-circle-fill");
+  } else {
+    // Change back to play icon
+    playbtn.classList.remove("bi-pause-circle-fill");
+    playbtn.classList.add("bi-play-circle-fill");
+  }
 });
